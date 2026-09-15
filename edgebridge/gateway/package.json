@@ -1,0 +1,18 @@
+{
+  "name": "edgebridge-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EdgeBridge Gateway - authenticated SOCKS5 + HTTP CONNECT proxy for personal/authorized use.",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js",
+    "healthcheck": "node healthcheck.js"
+  },
+  "dependencies": {},
+  "license": "MIT"
+}

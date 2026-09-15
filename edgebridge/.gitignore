@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+gateway/node_modules/
+
+# Env & secrets
+.env
+*.env
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Build artifacts
+dist/
+build/
+extension/*.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

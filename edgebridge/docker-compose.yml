@@ -1,0 +1,22 @@
+services:
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    image: edgebridge-gateway:latest
+    container_name: edgebridge-gateway
+    restart: unless-stopped
+    # Load configuration from the .env file in the repo root.
+    env_file:
+      - .env
+    ports:
+      # Proxy port (SOCKS5 + HTTP CONNECT share this port).
+      - "${PORT:-1080}:${PORT:-1080}"
+      # Health-check endpoint.
+      - "${HEALTH_PORT:-8080}:${HEALTH_PORT:-8080}"
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
